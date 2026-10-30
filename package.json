@@ -1,0 +1,19 @@
+{
+  "name": "procureai-root",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,magenta \"npm --workspace backend run dev\" \"npm --workspace frontend run dev -- --host 0.0.0.0\"",
+    "dev:backend": "npm --workspace backend run dev",
+    "dev:frontend": "npm --workspace frontend run dev -- --host 0.0.0.0",
+    "build": "npm --workspace frontend run build",
+    "seed": "npm --workspace backend run seed"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
